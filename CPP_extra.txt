@@ -1,0 +1,606 @@
+#include <iostream> 
+using namespace std; 
+int main()  
+{ 
+      int a,  *ptr1,  **ptr2; 
+      ptr1 = &a; 
+      ptr2=&ptr1; 
+      cout << "The address of a : " << ptr1 << "\n"; 
+      cout << "The address of ptrl : " << ptr2; 
+      cout<<"\nvalue="<<&*ptr1;
+      cout << "\n\n"; 
+      cout << "After incrementing the address values:\n\n"; 
+      ptr1+=2; 
+      cout << "The address of a : " << ptr1 << "\n"; 
+      ptr2+=2; 
+      cout << "The address of ptr1 : " << ptr2 << "\n"; 
+      return 0;
+}
+
+
+#include <iostream> 
+using namespace std;
+int main() 
+{ 
+    int a=10;
+    int *ptr; 
+    ptr = &a; 
+    cout << "The value of a is : " << a; 
+    cout << "\n\n"; 
+      cout << "The address of a is : " << ptr; 
+    cout << "\n\n";
+    *ptr=*ptr+a; 
+    cout << "After Manipulation: The value of a is : " << a; 
+    cout << "\n\n"; 
+     cout << "After Manipulation: The value of ptr is : " << ptr; 
+}
+
+
+#include<iostream> 
+using namespace std;
+int main() 
+{ 
+    int num[ ]={56,75,22,18,90}; 
+    int *ptr; 
+    int i; 
+    cout << "The array values are:\n"; 
+    for(i=0;i<5;i++) 
+       cout<< num[i]<<"\n"; 
+    /*Allocating the base address of num to ptr*/ 
+        ptr = num; 
+    /* Printing the value in the array */ 
+    cout <<"\nValue of ptr : " << *ptr; 
+    cout << "\n"; 
+    (*ptr)++; 
+    cout<<"\nValue of ptr++ : "<< *ptr; 
+    cout << "\n"; 
+   /* ptr--; 
+    cout<<"\nValue of ptr-- : "<< *ptr; 
+    cout << "\n"; 
+    ptr=ptr+2; 
+    cout<<"\nValue of ptr+2 : "<< *ptr; 
+    cout << "\n"; 
+    ptr=ptr-1; 
+    cout <<"\nValue of ptr-1: "<< *ptr; 
+    cout << "\n"; 
+    ptr+=3; 
+    cout<<"\nValue of ptr+=3: "<< *ptr; 
+    ptr-=2; 
+    cout << "\n"; 
+    cout<<"\nValue of ptr-=2: "<< *ptr; 
+    cout << "\n"; */
+} 
+
+
+#include<iostream> 
+using namespace std; 
+int main() 
+{ 
+    int arr[10] = {1,99,4,37,88,3,19,45,62,87}; 
+    int i,num,*ptr; 
+    
+    /*Assigning the base address of array arr to ptr”*/ 
+    ptr=arr; 
+    
+    cout<<"Enter the element to be searched: "; 
+    cin>>num; 
+    for(i=0;i<10;i++) 
+    { 
+        if(*ptr==num) 
+        {
+            cout<<"\n"<<num<<" is present in the array";
+            break;
+        }
+        else if(i==9)
+        cout<<"\n"<<num<<" is not present in the array";
+    ptr++; 
+    //Incrementing the pointer to make it point
+    //to the next array element
+    } 
+}
+
+#include <iostream> 
+#include <string> 
+#include <ctype> 
+int main() 
+{ 
+    int i=0; 
+    char *ptr[10] = { 
+         “books”, 
+         “television”, 
+         “computer”, 
+         “sports” 
+         }; 
+    char str[25]; 
+    cout << "\n\n\n\nEnter your favorite leisure pursuit: " ; 
+    cin >> str; 
+    for(i=0; i<4; i++) 
+    { 
+        if(!strcmp(str,  *ptr[i])) 
+        { 
+            cout << "\n\nYour favorite pursuit " << " is available 
+         here" << end1; 
+            break; 
+        } 
+    } 
+    if(i==4) 
+      cout << "\n\nYour favorite " << " not available here" << 
+      endl; 
+      } 
+
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main()
+{
+    int i, j;
+
+    char str[] = "C++ is better than C";
+    int len = strlen(str);
+
+    char *substr = new char[len];
+
+    cout << "The main string is: " << str;
+    cout << "\n\nEnter the substring to be searched: ";
+    cin >> substr;
+
+    int k, len2 = strlen(substr);
+
+    bool found = false;
+
+    for (i = 0; i <= len - len2; i++)
+    {
+        k = i;
+
+        for (j = 0; j < len2; j++)
+        {
+            if (str[k] == substr[j])
+            {
+                if (j == len2 - 1)
+                {
+                    cout << "\nThe substring is present in the main string.\n";
+                    found = true;
+                    break;
+                }
+                k++;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        if (found) break;
+    }
+
+    if (!found)
+        cout << "\nThe substring is NOT present in the main string.\n";
+
+    delete[] substr;
+
+    return 0;
+}
+
+
+#include <iostream> 
+using namespace std;
+typedef void (*FunPtr) (int, int); 
+void Add(int i, int j) 
+{ 
+    cout << i << " + " << j << " = " << i + j; 
+} 
+void Subtract(int i, int j) 
+{ 
+    cout << i << " - " << j << " = "  << i - j; 
+} 
+int main( ) 
+{ 
+    FunPtr ptr; 
+    ptr = &Add; 
+    ptr(1,2); 
+    cout << endl; 
+    ptr = &Subtract; 
+    ptr(3,2); 
+} 
+
+
+#include <iostream> 
+using namespace std; 
+class item 
+{ 
+    int code; 
+    float price; 
+    public: 
+    void getdata(int a,  float b) 
+    { 
+        code = a; 
+        price = b; 
+    } 
+    void show(void) 
+    { 
+        cout << "Code : " << code << "\n"; 
+        cout << "Price: " << price << "\n"; 
+    } 
+}; 
+const int size = 2; 
+int main( ) 
+{ 
+    item *p = new item [size]; 
+    item *d = p; 
+    int x, i; 
+    float y; 
+    for(i=0; i<size; i++) 
+    { 
+        cout << "Input code and price for item"; 
+        cin >> x >> y; 
+        p->getdata(x,y); 
+        p++; 
+    } 
+    for(i=0; i<size; i++) 
+    { 
+        cout << "Item:" << i+1 << "\n"; 
+        d->show( ); 
+        d++; 
+    } 
+    return 0; 
+} 
+
+
+#include <iostream> 
+#include <cstring> 
+using namespace std; 
+class city 
+{ 
+    protected: 
+        char *name; 
+        int len; 
+    public: 
+        city( ) 
+        { 
+            len = 0;
+            name = new char[len+1];          
+        }
+        void getname(void)
+        {
+            char *s;
+            s = new char[30];
+            cout << "Enter city name:";
+            cin >> s;
+            len = strlen(s);
+            name = new char[len + 1];
+            strcpy(name, s);
+        }
+        void printname(void)
+        {
+            cout << name << "\n";
+        } 
+};       
+int main( )       
+{
+    city *cptr[10]; // array of 10 pointers to cities
+    int n = 1; int option;
+    do
+    {
+        cptr[n] = new city; // create new city
+        cptr[n]->getname( );
+        n++;
+        cout << "Do you want to enter one more name?\n";
+        cout << "(Enter 1 for yes 0 for no):";
+        cin >> option;
+    }
+    while(option);
+    cout << "\n\n"; 
+    for(int i=1; i<=n; i++) 
+    {
+        cptr[i]->printname( );
+    }
+    return 0;
+}
+
+
+#include <iostream> 
+#include <cstring> 
+using namespace std; 
+class person 
+{ 
+   char name[20]; 
+   float age; 
+   public: 
+      person(char *s, float a) 
+      { 
+         strcpy(name,  s); 
+         age = a; 
+      } 
+      person & person :: greater(person & x) 
+      { 
+         if(x.age >= age) 
+            return x;          
+         else
+            return *this;      
+      }       
+      void display(void)       
+      {
+         cout << "Name: " << name << "\n"
+               << "Age: " << age << "\n";   
+      } 
+};       
+int main()
+{
+   person P1("John", 37.50),
+   P2("Ahmed", 29.0),
+   P3("Hebber", 40.25);
+   person P = P1.greater(P3); // P3.greater(P1) 
+   cout << "Elder person is: \n"; 
+   P.display( );
+ 
+   P = P1.greater(P2); // P2.greater(P1) 
+   cout << "Elder person is: \n"; 
+   P.display( ); 
+   return 0; 
+} 
+
+Polymorhism
+
+#include<iostream>
+using namespace std;
+class B
+{
+    public:
+    void show()
+    {
+        cout<<"Base\n";
+    }
+};
+class D : public B
+{
+    public:
+    void show()
+    {   
+    cout<<"Derived\n";
+    }
+};
+int main()
+{
+        D d;
+        d.show();
+        d.B::show();
+}
+Pointers to Derived Objects
+
+#include <iostream> 
+using namespace std; 
+class BC 
+{ 
+      public: 
+         int b; 
+        void show() 
+        { 
+            cout << "b =" << b << "\n";
+        } 
+}; 
+class DC : public BC 
+{ 
+    public: 
+      int d; 
+    void show( ) 
+    { 
+        cout << "b = " << b << "\n" << "d = " << d << "\n";
+    } 
+}; 
+int main( ) 
+{ 
+      BC *bptr; 
+      BC base; 
+      bptr = &base; 
+      bptr->b = 100; 
+      cout << "bptr points to base object \n"; 
+      bptr -> show( ); // derived class DC derived; 
+      bptr = &derived; 
+        // address of derived object 
+      bptr -> b = 200; // access DC via base pointer
+      /* bptr -> d = 300;*/ // won’t work 
+      cout << "bptr now points to derived object \n"; 
+      bptr -> show( );        // bptr now points to derived object
+      /* accessing d using a pointer of type derived class DC */
+      DC *dptr; 
+      // derived type pointer 
+      dptr = &derived; 
+      dptr->d = 300;
+      cout << "dptr is derived type pointer\n"; 
+      dptr -> show( ); 
+      cout << "using ((DC *)bptr)\n"; 
+      ((DC *)bptr)  -> d = 400; 
+      ((DC *)bptr)  -> show( );
+      return 0; 
+}
+
+bptr points base object 
+b = 100 
+bptr now points to derived object 
+b = 200 
+dptr is derived type pointer 
+b = 200 
+d = 300 
+using ((DC *)bptr) 
+b = 200 
+d = 400
+
+Virtual Functions
+
+#include <iostream> 
+using namespace std; 
+class Base 
+{ 
+      public: 
+         void display( )  
+        {
+            cout << "\n Display base ";
+        } 
+        virtual void  show( )  
+        {
+            cout << "\n show base";
+        } 
+};
+class Derived : public Base 
+{ 
+      public: 
+         void display( )  {cout << "\n Display derived";} 
+         void show( )  {cout << "\n show derived";} 
+}; 
+int main( ) 
+{ 
+         Base B; 
+         Derived D; 
+         Base *bptr;
+         cout << "\n bptr points to Base \n"; 
+         bptr = &B; 
+         bptr -> display( ); // calls Base version 
+         bptr -> show( ); // calls Base version
+         cout << "\n\n bptr points to Derived\n"; 
+         bptr = &D; 
+         bptr -> display( ); // calls Base version 
+         bptr -> show( ); // calls Derived version 
+         return 0; 
+} 
+
+bptr points to Base 
+Display 
+base Show base 
+bptr points to Derived 
+Display base 
+Show derived
+Run time polymorphism
+
+#include <iostream> 
+#include <cstring> 
+using namespace std; 
+class media 
+{ 
+    protected: 
+        char title[50]; 
+        float price; 
+    public: 
+        media(char *s, float a) 
+        { 
+            strcpy(title, s);
+            price = a;          
+        }         
+        virtual void display( ) { } // empty virtual function       
+};
+class book: public media       
+{         
+    int pages;
+    public:          
+    book(char *s, float a, int p):media(s,a)          
+    {
+        pages = p;
+    }
+    void display( );       
+};       
+class tape :public media       
+{          
+    float time;       
+    public:          
+        tape(char * s, float a, float t):media(s, a)          
+        {
+            time = t;          
+        }          
+        void display( );       
+};
+void book :: display()       
+{          
+    cout << "\n Title: " << title;          
+    cout << "\n Pages: " << pages;          
+    cout << "\n Price: " << price;       
+}       
+void tape :: display( )       
+{          
+    cout << "\n Title: " << title;          
+    cout << "\n  play time: " << time << "mins";          
+    cout << "\n price: " << price;
+}       
+int main( )       
+{          
+    char * title = new char[30];
+    float price, time;          
+    int pages;
+         // Book details          
+cout << “\n ENTER BOOK DETAILS\n”;
+    cout << " Title: ";    cin >> title;          
+    cout << " Price: ";   cin >> price;          
+    cout << " Pages: "; cin >> pages;
+    
+    book book1(title, price, pages);
+         // Tape details          
+cout << “\n ENTER TAPE DETAILS\n”;
+    cout << " Title: "; cin >> title;          
+    cout << " Price: "; cin >> price;          
+    cout << " Play time (mins): "; 
+    cin >> time;         
+    tape tape1(title, price, time);
+    media* list[2];          
+    list[0] = &book1;          
+    list[1] = &tape1;
+    cout << "\n MEDIA DETAILS";
+    cout << "\n......  BOOK  ......."; 
+    list[0] -> display( ); // display book details
+    cout << "\n  .......TAPE  .......";
+    list[1] -> display( ); // display tape details
+    return 0; 
+}
+
+ENTER BOOK DETAILS 
+Title:Programming_in_ANSI_C 
+Price: 88 
+Pages: 400 
+ENTER TAPE DETAILS 
+Title: Computing_Concepts 
+Price: 90 Play time (mins): 55 
+MEDIA DETAILS 
+...... BOOK ........ 
+Title:Programming_in_ANSI_C 
+Pages: 400 
+Price: 88 
+...... TAPE ........ 
+Title: Computing_Concepts 
+Play time: 55mins 
+Price: 90
+
+Pure virtual functions
+
+#include <iostream> 
+using namespace std; 
+class Balagurusamy //base class 
+{ 
+    public: 
+      virtual void example()=0;  //Denotes pure virtual Function Definition 
+}; 
+class C:public Balagurusamy //derived class 1 
+{ 
+    public: 
+    void example() 
+    {
+        cout<<"C text Book written by Balagurusamy";
+    } 
+};       
+class oops:public Balagurusamy //derived class 2       
+{
+    public:
+    void example( )
+    {
+        cout<<"C++ text Book written by Balagurusamy";
+    }
+}; 
+int main() 
+{ 
+    Balagurusamy* arra[2]; 
+    C e1; 
+    oops e2; 
+    arra[0]=&e1; 
+    arra[1]=&e2; 
+    arra[0]->example( ); 
+    arra[1]->example( ); 
+    return 0;
+}
