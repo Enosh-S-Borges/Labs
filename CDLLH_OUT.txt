@@ -1,0 +1,84 @@
+----- MENU -----
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Insert by Order
+5. Delete at Beginning
+6. Delete at End
+7. Delete at Position
+8. Delete By Key
+9. Search By Key
+10. Reverse Operation
+11. Copy Operation
+12. Display
+13. Exit
+Enter your choice: 1
+Enter data: 5
+Node 5 inserted at beginning
+
+----- MENU -----
+Enter your choice: 2
+Enter data: 30
+Node 30 inserted at end
+
+----- MENU -----
+Enter your choice: 3
+Enter data: 10
+Enter position: 2
+Node 10 inserted at position 2
+
+----- MENU -----
+Enter your choice: 4
+Enter data: 20
+Node 20 inserted
+
+----- MENU -----
+Enter your choice: 12
+CDLL: 5 <-> 10 <-> 20 <-> 30 <-> (back to header)
+
+----- MENU -----
+Enter your choice: 9
+Enter key: 20
+Value 20 is PRESENT in the list.
+
+----- MENU -----
+Enter your choice: 10
+List reversed successfully
+
+----- MENU -----
+Enter your choice: 11
+CDLL: 30 <-> 20 <-> 10 <-> 5 <-> (back to header)
+
+----- MENU -----
+Enter your choice: 12
+CDLL: 30 <-> 20 <-> 10 <-> 5 <-> (back to header)
+
+----- MENU -----
+Enter your choice: 5
+Deleted node 30 from beginning
+
+----- MENU -----
+Enter your choice: 6
+Deleted node 5 from end
+
+----- MENU -----
+Enter your choice: 7
+Enter position: 2
+Deleted node 10 from position 2
+
+----- MENU -----
+Enter your choice: 8
+Enter key: 20
+Deleted node with key 20
+
+----- MENU -----
+Enter your choice: 12
+List is empty
+
+----- MENU -----
+Enter your choice: 0
+Invalid choice!
+
+----- MENU -----
+Enter your choice: 13
+Exiting...

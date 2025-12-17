@@ -1,0 +1,80 @@
+----- MENU -----
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Insert by Order
+5. Delete at Beginning
+6. Delete at End
+7. Delete at Position
+8. Delete By Key
+9. Reverse Operation
+10. Copy Operation
+11. Display
+12. Exit
+Enter your choice: 1
+Enter data: 5
+Inserted 5 at beginning.
+
+----- MENU -----
+Enter your choice: 2
+Enter data: 30
+Inserted 30 at end.
+
+----- MENU -----
+Enter your choice: 3
+Enter data: 10
+Enter position: 2
+Inserted 10 at position 2.
+
+----- MENU -----
+Enter your choice: 4
+Enter data: 20
+Inserted 20 in sorted order.
+
+----- MENU -----
+Enter your choice: 11
+
+CSLL (4 nodes): 5 10 20 30 
+
+----- MENU -----
+Enter your choice: 9
+List reversed successfully.
+
+----- MENU -----
+Enter your choice: 10
+List copied successfully.
+
+----- MENU -----
+Enter your choice: 11
+
+CSLL (4 nodes): 30 20 10 5 
+
+----- MENU -----
+Enter your choice: 5
+Deleted: 30
+
+----- MENU -----
+Enter your choice: 6
+Deleted: 5
+
+----- MENU -----
+Enter your choice: 7
+Enter position: 2
+Deleted: 10
+
+----- MENU -----
+Enter your choice: 8
+Enter key: 20
+Node with value 20 deleted.
+
+----- MENU -----
+Enter your choice: 11
+List is empty.
+
+----- MENU -----
+Enter your choice: 0 
+Invalid choice!
+
+----- MENU -----
+Enter your choice: 12
+Exiting...
