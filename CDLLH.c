@@ -4,23 +4,23 @@
 typedef struct Node 
 {
     int data;
-    struct Node* lptr;
-    struct Node* rptr;
+    struct Node* prev;
+    struct Node* next;
 } Node;
 
 Node* createNode(int value) 
 {
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->data = value;
-    newNode->lptr = newNode->rptr = NULL;
+    newNode->prev = newNode->next = NULL;
     return newNode;
 }
 
 Node* initializeList() 
 {
     Node* header = createNode(0);  
-    header->lptr = header;
-    header->rptr = header;
+    header->prev = header;
+    header->next = header;
     return header;
 }
 
@@ -28,11 +28,11 @@ void insertAtBeginning(Node* header, int value)
 {
     Node* newNode = createNode(value);
 
-    newNode->rptr = header->rptr;  
-    newNode->lptr = header;       
+    newNode->next = header->next;  
+    newNode->prev = header;       
 
-    header->rptr->lptr = newNode;  
-    header->rptr = newNode; 
+    header->next->prev = newNode;  
+    header->next = newNode; 
 
     header->data++;
     printf("Node %d inserted at beginning\n", value);
@@ -42,10 +42,10 @@ void insertAtEnd(Node* header, int value)
 {
     Node* newNode = createNode(value);
 
-    newNode->lptr = header->lptr;   
-    newNode->rptr = header;       
-    header->lptr->rptr = newNode; 
-    header->lptr = newNode;  
+    newNode->prev = header->prev;   
+    newNode->next = header;       
+    header->prev->next = newNode; 
+    header->prev = newNode;  
 
     header->data++;
     printf("Node %d inserted at end\n", value);
@@ -59,22 +59,22 @@ void insertAtPosition(Node* header, int value, int pos)
         return;
     }
 
-    Node* temp = header->rptr;   
+    Node* temp = header->next;   
     int count = 1;
 
     while (count < pos)
     {
-        temp = temp->rptr;      
+        temp = temp->next;      
         count++;
     }
 
     Node* newNode = createNode(value);
 
-    newNode->rptr = temp;
-    newNode->lptr = temp->lptr;
+    newNode->next = temp;
+    newNode->prev = temp->prev;
 
-    temp->lptr->rptr = newNode;
-    temp->lptr = newNode;
+    temp->prev->next = newNode;
+    temp->prev = newNode;
 
     header->data++;
     printf("Node %d inserted at position %d\n", value, pos);
@@ -82,18 +82,18 @@ void insertAtPosition(Node* header, int value, int pos)
 
 void insertByOrder(Node* header, int value)
 {
-    Node* temp = header->rptr;   
+    Node* temp = header->next;   
 
     while (temp != header && temp->data < value)
-        temp = temp->rptr;
+        temp = temp->next;
 
     Node* newNode = createNode(value);
 
-    newNode->rptr = temp;
-    newNode->lptr = temp->lptr;
+    newNode->next = temp;
+    newNode->prev = temp->prev;
 
-    temp->lptr->rptr = newNode;
-    temp->lptr = newNode;
+    temp->prev->next = newNode;
+    temp->prev = newNode;
 
     header->data++;
     printf("Node %d inserted\n", value);
@@ -101,16 +101,16 @@ void insertByOrder(Node* header, int value)
 
 void deleteAtBeginning(Node* header)
 {
-    if (header->rptr == header) 
+    if (header->next == header) 
     {
         printf("List is empty — cannot delete!\n");
         return;
     }
 
-    Node* temp = header->rptr;    
+    Node* temp = header->next;    
 
-    header->rptr = temp->rptr;    
-    temp->rptr->lptr = header;   
+    header->next = temp->next;    
+    temp->next->prev = header;   
 
     printf("Deleted node %d from beginning\n", temp->data);
     free(temp);
@@ -119,15 +119,15 @@ void deleteAtBeginning(Node* header)
 
 void deleteAtEnd(Node* header)
 {
-    if (header->rptr == header)
+    if (header->next == header)
     {
         printf("List is empty — cannot delete!\n");
         return;
     }
 
-    Node* temp = header->lptr;   
-    temp->lptr->rptr = header;   
-    header->lptr = temp->lptr;  
+    Node* temp = header->prev;   
+    temp->prev->next = header;   
+    header->prev = temp->prev;  
 
     printf("Deleted node %d from end\n", temp->data);
     free(temp);
@@ -141,23 +141,23 @@ void deleteAtPosition(Node* header, int pos)
         printf("Invalid position!\n");
         return;
     }
-    if (header->rptr == header)
+    if (header->next == header)
     {
         printf("List is empty — cannot delete!\n");
         return;
     }
 
-    Node* temp = header->rptr;   
+    Node* temp = header->next;   
     int count = 1;
 
     while (count < pos)        
     {
-        temp = temp->rptr;
+        temp = temp->next;
         count++;
     }
 
-    temp->lptr->rptr = temp->rptr;  
-    temp->rptr->lptr = temp->lptr; 
+    temp->prev->next = temp->next;  
+    temp->next->prev = temp->prev; 
 
     printf("Deleted node %d from position %d\n", temp->data, pos);
     free(temp);
@@ -166,14 +166,14 @@ void deleteAtPosition(Node* header, int pos)
 
 void deleteByKey(Node* header, int key)
 {
-    if (header->rptr == header)
+    if (header->next == header)
     {
         printf("List is empty — cannot delete!\n");
         return;
     }
-    Node* temp = header->rptr;   
+    Node* temp = header->next;   
     while (temp != header && temp->data != key)
-        temp = temp->rptr;
+        temp = temp->next;
 
     if (temp == header)
     {
@@ -181,8 +181,8 @@ void deleteByKey(Node* header, int key)
         return;
     }
 
-    temp->lptr->rptr = temp->rptr;   
-    temp->rptr->lptr = temp->lptr;   
+    temp->prev->next = temp->next;   
+    temp->next->prev = temp->prev;   
 
     printf("Deleted node with key %d\n", temp->data);
     free(temp);
@@ -191,7 +191,7 @@ void deleteByKey(Node* header, int key)
 
 void reverse(Node* header)
 {
-    if (header->rptr == header)   
+    if (header->next == header)   
     {
         printf("List is empty — cannot reverse!\n");
         return;
@@ -199,9 +199,9 @@ void reverse(Node* header)
     Node* temp = header;          
     do
     {
-        Node* swap = temp->rptr;
-        temp->rptr = temp->lptr;
-        temp->lptr = swap;
+        Node* swap = temp->next;
+        temp->next = temp->prev;
+        temp->prev = swap;
         temp = swap;         
     }
     while (temp != header);
@@ -210,51 +210,51 @@ void reverse(Node* header)
 
 void display(Node* header) 
 {
-    if (header->rptr == header) 
+    if (header->next == header) 
     {
         printf("List is empty\n");
         return;
     }
 
-    Node* temp = header->rptr;
+    Node* temp = header->next;
     printf("CDLL: ");
     while (temp != header) 
     {
         printf("%d <-> ", temp->data);
-        temp = temp->rptr;
+        temp = temp->next;
     }
     printf("(back to header)\n");
 }
 
 void copyList(Node* header)
 {
-    if (header->rptr == header)
+    if (header->next == header)
     {
         printf("Original list is empty — nothing to copy!\n");
         return;
     }
 
     Node* newHeader = createNode(0);
-    newHeader->rptr = newHeader->lptr = newHeader;
+    newHeader->next = newHeader->prev = newHeader;
 
-    Node* curr = header->rptr;
+    Node* curr = header->next;
     while (curr != header)
     {
         Node* newNode = createNode(curr->data);
-        newNode->lptr = newHeader->lptr;
-        newNode->rptr = newHeader;
+        newNode->prev = newHeader->prev;
+        newNode->next = newHeader;
 
-        newHeader->lptr->rptr = newNode;
-        newHeader->lptr = newNode;
+        newHeader->prev->next = newNode;
+        newHeader->prev = newNode;
 
-        curr = curr->rptr;
+        curr = curr->next;
     }
     display(newHeader);
 }
 
 void searchByKey(Node *header, int key) 
 {
-    Node *temp = header->rptr;
+    Node *temp = header->next;
 
     while (temp != header) 
     {
@@ -263,7 +263,7 @@ void searchByKey(Node *header, int key)
             printf("Value %d is PRESENT in the list.\n", key);
             return;
         }
-        temp = temp->rptr;
+        temp = temp->next;
     }
     printf("Value %d is NOT PRESENT in the list.\n", key);
 }
