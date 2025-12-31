@@ -1,0 +1,63 @@
+
+Enter the initial maximum size for dynamic stack: 3
+
+===== Stack Menu =====
+1. Push (Static Stack)
+2. Pop (Static Stack)
+3. Peek (Static Stack)
+4. Display (Static Stack)
+5. Push (Dynamic Stack)
+6. Pop (Dynamic Stack)
+7. Peek (Dynamic Stack)
+8. Display (Dynamic Stack)
+9. Exit
+Enter your choice: 1
+Enter value to push (Static Stack): 10
+10 pushed to static stack.
+
+===== Stack Menu =====
+Enter your choice: 1
+Enter value to push (Static Stack): 20
+20 pushed to static stack.
+
+===== Stack Menu =====
+Enter your choice: 4
+Static Stack: 20 10 
+
+===== Stack Menu =====
+Enter your choice: 2
+Popped: 20
+
+===== Stack Menu =====
+Enter your choice: 3
+Top element: 10
+
+===== Stack Menu =====
+Enter your choice: 5
+Enter value to push (Dynamic Stack): 20
+20 pushed to dynamic stack.
+
+===== Stack Menu =====
+Enter your choice: 5
+Enter value to push (Dynamic Stack): 30
+30 pushed to dynamic stack.
+
+===== Stack Menu =====
+Enter your choice: 8
+Dynamic Stack: 30 20 
+
+===== Stack Menu =====
+Enter your choice: 6
+Popped: 30
+
+===== Stack Menu =====
+Enter your choice: 7
+Top element: 20
+
+===== Stack Menu =====
+Enter your choice: 0
+Invalid choice! Try again.
+
+===== Stack Menu =====
+Enter your choice: 9
+Exiting program...

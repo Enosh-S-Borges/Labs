@@ -1,0 +1,109 @@
+
+Select queue type:
+1. Circular Queue using Static Memory Allocation
+2. Circular Queue using Dynamic Memory Allocation
+1
+
+--- Static Circular Queue Menu ---
+1. Enqueue
+2. Dequeue
+3. Display
+4. Peek Front
+5. Peek Rear
+6. Exit
+1
+Enter value: 10
+10 enqueued in Static Circular queue
+
+--- Static Circular Queue Menu ---
+1
+Enter value: 20
+20 enqueued in Static Circular queue
+
+--- Static Circular Queue Menu ---
+1
+Enter value: 30
+30 enqueued in Static Circular queue
+
+--- Static Circular Queue Menu ---
+3
+Circular Queue elements: 10 20 30 
+
+--- Static Circular Queue Menu ---
+2
+Dequeued: 10
+
+--- Static Circular Queue Menu ---
+4
+Front element: 20
+
+--- Static Circular Queue Menu ---
+5
+Rear element: 30
+
+--- Static Circular Queue Menu ---
+0
+Invalid choice
+
+--- Static Circular Queue Menu ---
+6
+Exiting static queue menu...
+
+
+Select queue type:
+1. Circular Queue using Static Memory Allocation
+2. Circular Queue using Dynamic Memory Allocation
+2
+Enter initial size for dynamic queue: 3 
+
+--- Dynamic Circular Queue Menu ---
+1. Enqueue
+2. Dequeue
+3. Display
+4. Peek Front
+5. Peek Rear
+6. Exit
+1
+Enter value: 10
+10 enqueued in dynamic circular queue
+
+--- Dynamic Circular Queue Menu ---
+1
+Enter value: 20
+20 enqueued in dynamic circular queue
+
+--- Dynamic Circular Queue Menu ---
+1
+Enter value: 30
+30 enqueued in dynamic circular queue
+
+--- Dynamic Circular Queue Menu ---
+1
+Enter value: 40
+Dynamic Circular Queue is full. Resizing...
+Dynamic queue resized to 6
+40 enqueued in dynamic circular queue
+
+--- Dynamic Circular Queue Menu ---
+3
+Queue elements: 10 20 30 40 
+
+--- Dynamic Circular Queue Menu ---
+2
+Dequeued: 10
+
+--- Dynamic Circular Queue Menu ---
+4
+Front element: 20
+
+--- Dynamic Circular Queue Menu ---
+5
+Rear element: 40
+
+--- Dynamic Circular Queue Menu ---
+0
+Invalid choice
+
+--- Dynamic Circular Queue Menu ---
+6
+Exiting dynamic queue menu...
