@@ -1,3 +1,7 @@
+/*b) Develop a menu driven program to implement Circular Queue with
+static and dynamic memory allocation mechanisms.(Represent Queue
+using structure)*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
