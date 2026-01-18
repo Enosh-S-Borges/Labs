@@ -7,8 +7,6 @@ using structure)*/
 
 #define MAX 5
 
-
-
 typedef struct 
 {
     int arr[MAX];   
